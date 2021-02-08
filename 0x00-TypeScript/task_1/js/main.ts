@@ -27,3 +27,35 @@ function printTeacher(teacher: printTeacherFunction) {
 }
 
 console.log(printTeacher(teach));*/
+
+interface Student {
+    firstName:string;
+    lastName:string;
+}
+
+class StudentClass {
+    firstName: string
+    lastName: string
+    constructor(student:Student){
+        this.firstName = student.firstName
+        this.lastName = student.lastName
+    }
+    workOnHomework(){
+        return "Currently working"
+    }
+    displayName(){
+        return this.firstName
+    }
+
+}
+
+/*const stu1: Student = {
+    firstName:"Ivan",
+    lastName: "Lasso"
+}
+
+const student1 = new StudentClass(stu1);
+
+console.log(student1);
+console.log(student1.workOnHomework());
+console.log(student1.displayName());*/
