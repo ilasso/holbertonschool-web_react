@@ -64,10 +64,10 @@ export function isDirector(employee: Director | Teacher): employee is Director {
 
 export function executeWork(employee: DirectorInterface | TeacherInterface): void {
     if (isDirector(employee)){
-        console.log((employee as Director).workDirectorTasks());
+        console.log(employee.workDirectorTasks());
     }
     else {
-        console.log((employee as Teacher).workTeacherTasks());
+        console.log(employee.workTeacherTasks());
     }
 }
 
