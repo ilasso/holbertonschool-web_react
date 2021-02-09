@@ -23,7 +23,7 @@ class Student {
 const student1:Student = new Student("Ivan","Lasso", 46,"Cali");
 const student2:Student = new Student("Andres","Lasso", 16,"Cali");
 
-const students = [student1, student2];
+const students: Array<Student> = [student1, student2];
 
 /* vanilla*/
 const table = document.createElement('table');
