@@ -60,16 +60,18 @@ console.log(emp3. getToWork());
 console.log(emp3.workDirectorTasks());
 */
 
-export function isDirector(employee: Teacher | Director): employee is Director {
+export function isDirector(employee: TeacherInterface | DirectorInterface): employee is Director {
     return (employee as Director).workDirectorTasks !== undefined;
 }
 
-export function executeWork(employee: DirectorInterface | TeacherInterface): void {
+export function executeWork(employee: DirectorInterface | TeacherInterface): string {
     if (isDirector(employee)){
         console.log(employee.workDirectorTasks());
+        return employee.workDirectorTasks();
     }
     else {
         console.log(employee.workTeacherTasks());
+        return employee.workTeacherTasks();
     }
 }
 
