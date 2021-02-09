@@ -37,9 +37,11 @@ export class Teacher implements TeacherInterface {
 
 export function createEmployee(salary: number | string): Teacher | Director {
     if (typeof salary === 'string' && salary[0] === '$')
-        salary = salary.slice(1)
-    if (Number(salary) < 500) return new Teacher
-    else return new Director
+        salary = salary.slice(1);
+    if (Number(salary) < 500) 
+        return new Teacher;
+    else 
+        return new Director;
 
 }
 /*const emp1 = createEmployee(200);
@@ -58,7 +60,7 @@ console.log(emp3. getToWork());
 console.log(emp3.workDirectorTasks());
 */
 
-export function isDirector(employee: Director | Teacher): employee is Director {
+export function isDirector(employee: Teacher | Director): employee is Director {
     return (employee as Director).workDirectorTasks !== undefined;
 }
 
