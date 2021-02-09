@@ -22,32 +22,27 @@ const student2: Student = {
 
 const studentsList: Array<Student> = [student1, student2];
 
-/* vanilla*/
-const table = document.createElement('table');
+const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
+const table: HTMLTableElement = document.createElement("table");
+const thead: HTMLTableSectionElement = document.createElement("thead");
+const tbody: HTMLTableSectionElement = document.createElement("tbody");
+const rowHead: HTMLTableRowElement = thead.insertRow(0);
+const cellfNameHead: HTMLTableCellElement = rowHead.insertCell(0);
+const cellLocationHead: HTMLTableCellElement = rowHead.insertCell(1);
 
-const thead: HTMLTableSectionElement = document.createElement('thead');
-const trhead: HTMLTableRowElement = document.createElement('tr');
-const trhfirstName: HTMLTableCellElement = document.createElement('td');
-const trhlocation: HTMLTableCellElement = document.createElement('td');
+cellfNameHead.innerHTML = "firstName";
+cellLocationHead.innerHTML = "location";
 
 table.append(thead);
-trhfirstName.innerHTML = 'firstName';
-trhlocation.innerHTML = 'location';
-thead.append(trhead);
-trhead.append(trhfirstName);
-trhead.append(trhlocation);
-
-const tbody: HTMLTableSectionElement = document.createElement('tbody');
-table.append(tbody)
 
 studentsList.forEach((student) => {
-    let row = tbody.insertRow()
-    for (let [k, v] of Object.entries(student)) {
-        /*if (k === 'firstName' || k === 'location') {*/
-            let cell = row.insertCell()
-            let text = document.createTextNode(v)
-            cell.appendChild(text)
-        /*}*/
-    }
+  const row: HTMLTableRowElement = tbody.insertRow(0);
+  const cellfName: HTMLTableCellElement = row.insertCell(0);
+  const cellLocation: HTMLTableCellElement = row.insertCell(1);
+
+  cellfName.innerHTML = student.firstName;
+  cellLocation.innerHTML = student.location;
 });
-document.body.appendChild(table);
+
+table.append(tbody);
+body.append(table);
