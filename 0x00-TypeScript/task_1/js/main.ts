@@ -13,20 +13,14 @@ interface Directors extends Teacher{
 
 // printing teachers
 interface printTeacherFunction {
-    firstName: string,
-    lastName: string
+    (firstName: string,
+    lastName: string) : string
 }
 
-function printTeacher(teacher: printTeacherFunction) {
-    return `${teacher.firstName[0]}. ${teacher.lastName}`
+function printTeacher(firstName: string, lastName: string) : string {
+    return `${firstName[0]}. ${lastName}`
 }
 
-/*const teach: printTeacherFunction = {
-    firstName:"Ivan",
-    lastName: "Lasso"
-}
-
-console.log(printTeacher(teach));*/
 
 interface Student {
     firstName:string;
