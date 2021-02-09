@@ -5,7 +5,7 @@ interface Student {
     location:string;
 }
 
-class Student {
+/*class Student {
     constructor (
         firstName:string,
         lastName:string,
@@ -18,10 +18,24 @@ class Student {
             this.location = location;
     }
 
+}*/
+const student1: Student = {
+    firstName: 'Ivan',
+    lastName: 'Lasso',
+    age: 22,
+    location: 'Cali'
 }
 
-const student1:Student = new Student("Ivan","Lasso", 46,"Cali");
-const student2:Student = new Student("Andres","Lasso", 16,"Cali");
+const student2: Student = {
+    firstName: 'Andres',
+    lastName: 'Lasso',
+    age: 32,
+    location: 'Cartagena'
+}
+
+
+/*const student1:Student = new Student("Ivan","Lasso", 46,"Cali");
+const student2:Student = new Student("Andres","Lasso", 16,"Cali");*/
 
 const students: Array<Student> = [student1, student2];
 
