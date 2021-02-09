@@ -30,7 +30,7 @@ class Teacher {
     getToWork() {
         return "Cannot have a break"
     }
-    workDirectorTasks() {
+    workTeacherTasks() {
         return "Getting to work"
     }
 }
@@ -42,7 +42,7 @@ function createEmployee(salary:number |string) {
     else return new Director
 
 }
-const emp1 = createEmployee(200);
+/*const emp1 = createEmployee(200);
 console.log(emp1.workFromHome());
 console.log(emp1. getToWork());
 console.log(emp1.workDirectorTasks());
@@ -56,3 +56,26 @@ const emp3 = createEmployee('$500');
 console.log(emp3.workFromHome());
 console.log(emp3. getToWork());
 console.log(emp3.workDirectorTasks());
+*/
+
+function isDirector(employee:Director|Teacher):boolean{
+    if (employee instanceof Teacher){
+        return false;
+    }
+    return true;
+}
+
+function executeWork(employee:Director|Teacher): string{
+    if (isDirector(employee)){
+        return (employee as Director).workDirectorTasks();
+    }
+    else {
+        return (employee as Teacher).workTeacherTasks();
+    }
+}
+
+
+/*console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
+*/
+
