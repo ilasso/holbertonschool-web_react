@@ -1,48 +1,46 @@
 interface Student {
-    firstName:string;
-    lastName:string;
-    age:number;
-    location:string;
-}
-
-const student1: Student = {
-    firstName: 'Ivan',
-    lastName: 'Lasso',
-    age: 22,
-    location: 'Cali'
-}
-
-const student2: Student = {
-    firstName: 'Andres',
-    lastName: 'Lasso',
+    firstName: string;
+    lastName: string;
+    age: number;
+    location: string;
+  }
+  
+  const stud1: Student = {
+    firstName: "Carlos",
+    lastName: "Garcia",
+    age: 33,
+    location: "Cali",
+  };
+  
+  const stud2: Student = {
+    firstName: "Marcela",
+    lastName: "Arismendi",
     age: 32,
-    location: 'Cartagena'
-}
-
-
-const studentsList: Array<Student> = [student1, student2];
-
-const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
-const table: HTMLTableElement = document.createElement("table");
-const thead: HTMLTableSectionElement = document.createElement("thead");
-const tbody: HTMLTableSectionElement = document.createElement("tbody");
-const rowHead: HTMLTableRowElement = thead.insertRow(0);
-const cellfNameHead: HTMLTableCellElement = rowHead.insertCell(0);
-const cellLocationHead: HTMLTableCellElement = rowHead.insertCell(1);
-
-cellfNameHead.innerHTML = "firstName";
-cellLocationHead.innerHTML = "location";
-
-table.append(thead);
-
-studentsList.forEach((element) => {
-  const row: HTMLTableRowElement = tbody.insertRow(0);
-  const cellfName: HTMLTableCellElement = row.insertCell(0);
-  const cellLocation: HTMLTableCellElement = row.insertCell(1);
-
-  cellfName.innerHTML = element.firstName;
-  cellLocation.innerHTML = element.location;
-});
-
-table.append(tbody);
-body.append(table);
+    location: "Palmira",
+  };
+  
+  const studentsList: Array<Student> = [stud1, stud2];
+  const body: HTMLBodyElement = document.getElementsByTagName("body")[0];
+  const table: HTMLTableElement = document.createElement("table");
+  const thead: HTMLTableSectionElement = document.createElement("thead");
+  const tbody: HTMLTableSectionElement = document.createElement("tbody");
+  const rowHead: HTMLTableRowElement = thead.insertRow(0);
+  const cell1Head: HTMLTableCellElement = rowHead.insertCell(0);
+  const cell2Head: HTMLTableCellElement = rowHead.insertCell(1);
+  
+  cell1Head.innerHTML = "firstName";
+  cell2Head.innerHTML = "location";
+  
+  table.append(thead);
+  
+  studentsList.forEach((stud) => {
+    const row: HTMLTableRowElement = tbody.insertRow(0);
+    const cell1: HTMLTableCellElement = row.insertCell(0);
+    const cell2: HTMLTableCellElement = row.insertCell(1);
+  
+    cell1.innerHTML = stud.firstName;
+    cell2.innerHTML = stud.location;
+  });
+  
+  table.append(tbody);
+  body.append(table);
