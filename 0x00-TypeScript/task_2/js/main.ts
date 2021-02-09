@@ -58,7 +58,7 @@ console.log(emp3. getToWork());
 console.log(emp3.workDirectorTasks());
 */
 
-export function isDirector(employee: Director | Teacher): boolean {
+export function isDirector(employee: Director | Teacher): employee is Director {
     if (employee instanceof Teacher){
         return false;
     }
@@ -75,9 +75,9 @@ export function executeWork(employee: Director | Teacher): void {
 }
 
 
-/*console.log(executeWork(createEmployee(200)));
-console.log(executeWork(createEmployee(1000)));
-*/
+/*executeWork(createEmployee(200));
+executeWork(createEmployee(1000));*/
+
 
 type Subjects = 'Math' | 'History';
 
