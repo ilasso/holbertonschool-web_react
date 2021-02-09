@@ -7,35 +7,35 @@ interface DirectorInterface {
 interface TeacherInterface {
     workFromHome() : string;
     getCoffeeBreak() : string;
-    workDirectorTasks() : string;
+    workTeacherTasks() : string;
 }
 
 
-class Director {
-    workFromHome() {
+export class Director implements DirectorInterface {
+    workFromHome(): string {
         return "Working from home"
     } 
-    getToWork() {
+    getCoffeeBreak(): string {
         return "Getting a coffee break"
     }
-    workDirectorTasks() {
+    workDirectorTasks(): string {
         return "Getting to director tasks"
     }
 }
 
-class Teacher {
-    workFromHome() {
+export class Teacher implements TeacherInterface {
+    workFromHome(): string {
         return "Cannot work from home"
     } 
-    getToWork() {
+    getCoffeeBreak(): string {
         return "Cannot have a break"
     }
-    workTeacherTasks() {
+    workTeacherTasks(): string {
         return "Getting to work"
     }
 }
 
-function createEmployee(salary:number |string) {
+export function createEmployee(salary: number | string): Teacher | Director {
     if (typeof salary === 'string' && salary[0] === '$')
         salary = salary.slice(1)
     if (Number(salary) < 500) return new Teacher
@@ -58,14 +58,14 @@ console.log(emp3. getToWork());
 console.log(emp3.workDirectorTasks());
 */
 
-function isDirector(employee:Director|Teacher):boolean{
+export function isDirector(employee: Director | Teacher): boolean {
     if (employee instanceof Teacher){
         return false;
     }
     return true;
 }
 
-function executeWork(employee:Director|Teacher): string{
+export function executeWork(employee: Director | Teacher): string {
     if (isDirector(employee)){
         return (employee as Director).workDirectorTasks();
     }

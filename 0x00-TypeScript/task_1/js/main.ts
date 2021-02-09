@@ -22,14 +22,14 @@ export const printTeacher: printTeacherFunction = (firstName: string, lastName: 
 
 
 interface Student {
-    firstName:string;
-    lastName:string;
+    firstName: string;
+    lastName: string;
 }
 
 class StudentClass {
     firstName: string
     lastName: string
-    constructor(student:Student){
+    constructor(student: Student){
         this.firstName = student.firstName
         this.lastName = student.lastName
     }
