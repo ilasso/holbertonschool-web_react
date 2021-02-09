@@ -65,12 +65,12 @@ export function isDirector(employee: Director | Teacher): boolean {
     return true;
 }
 
-export function executeWork(employee: Director | Teacher): string {
+export function executeWork(employee: Director | Teacher): void {
     if (isDirector(employee)){
-        return (employee as Director).workDirectorTasks();
+        console.log((employee as Director).workDirectorTasks());
     }
     else {
-        return (employee as Teacher).workTeacherTasks();
+        console.log((employee as Teacher).workTeacherTasks());
     }
 }
 
