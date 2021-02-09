@@ -35,13 +35,13 @@ cellLocationHead.innerHTML = "location";
 
 table.append(thead);
 
-studentsList.forEach((student) => {
+studentsList.forEach((element) => {
   const row: HTMLTableRowElement = tbody.insertRow(0);
   const cellfName: HTMLTableCellElement = row.insertCell(0);
   const cellLocation: HTMLTableCellElement = row.insertCell(1);
 
-  cellfName.innerHTML = student.firstName;
-  cellLocation.innerHTML = student.location;
+  cellfName.innerHTML = element.firstName;
+  cellLocation.innerHTML = element.location;
 });
 
 table.append(tbody);
