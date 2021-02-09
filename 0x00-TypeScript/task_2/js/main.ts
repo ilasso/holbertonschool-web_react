@@ -79,3 +79,15 @@ function executeWork(employee:Director|Teacher): string{
 console.log(executeWork(createEmployee(1000)));
 */
 
+type Subjects = 'Math' | 'History';
+
+function teachClass(todayClass:Subjects) {
+    if(todayClass === 'Math')
+        return 'Teaching Math';
+    else 
+        return 'Teaching History';
+}
+
+// console.log(teachClass('hola'));
+// console.log(teachClass('Math'));
+// console.log(teachClass('History'));
