@@ -59,13 +59,10 @@ console.log(emp3.workDirectorTasks());
 */
 
 export function isDirector(employee: Director | Teacher): employee is Director {
-    if (employee instanceof Teacher){
-        return false;
-    }
-    return true;
+    return (employee as Director).workDirectorTasks !== undefined;
 }
 
-export function executeWork(employee: Director | Teacher): void {
+export function executeWork(employee: DirectorInterface | TeacherInterface): void {
     if (isDirector(employee)){
         console.log((employee as Director).workDirectorTasks());
     }
