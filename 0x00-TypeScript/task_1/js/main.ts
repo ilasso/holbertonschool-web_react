@@ -8,7 +8,7 @@ interface Teacher {
 }
 
 interface Directors extends Teacher{
-    numberOfReports:number
+    numberOfReports: number;
 }
 
 // printing teachers
@@ -43,7 +43,7 @@ class StudentClass {
     workOnHomework(){
         return "Currently working"
     }
-    displayName(){
+    displayName() {
         return this.firstName
     }
 
