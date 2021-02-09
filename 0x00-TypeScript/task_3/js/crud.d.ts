@@ -1,7 +1,7 @@
 import { RowID, RowElement } from './interface'
 
-export function updateRow(rowId: number, row: object): RowElement
+export type updateRow(rowId: RowId, row: RowElement): number;
 
-export function deleteRow(rowId: number): any
+export type deleteRow(rowId: RowID): void;
 
-export function insertRow(row: object): number
+export type insertRow(row: RowElement): number;

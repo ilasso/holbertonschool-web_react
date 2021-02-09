@@ -2,12 +2,7 @@
 import { RowID, RowElement } from './interface'
 import * as CRUD from './crud'
 
-/*const row = <RowElement> {
-    firstName: 'Guillaume',
-    lastName: 'Salva',
-}
-*/
-const row:RowElement =  {
+const row: RowElement =  {
     firstName: 'Guillaume',
     lastName: 'Salva',
 }
