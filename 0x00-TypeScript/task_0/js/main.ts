@@ -5,7 +5,7 @@ interface Student {
     location:string;
 }
 
-/*class Student {
+/*class StudentClass {
     constructor (
         firstName:string,
         lastName:string,
@@ -34,10 +34,10 @@ const student2: Student = {
 }
 
 
-/*const student1:Student = new Student("Ivan","Lasso", 46,"Cali");
-const student2:Student = new Student("Andres","Lasso", 16,"Cali");*/
+/*const student1:Student = new StudentClass("Ivan","Lasso", 46,"Cali");
+const student2:Student = new StudentClass("Andres","Lasso", 16,"Cali");*/
 
-const students: Array<Student> = [student1, student2];
+const studentsList: Array<Student> = [student1, student2];
 
 /* vanilla*/
 const table = document.createElement('table');
@@ -57,7 +57,7 @@ trhead.append(trhlocation);
 const tbody: HTMLTableSectionElement = document.createElement('tbody');
 table.append(tbody)
 
-students.forEach((student) => {
+studentsList.forEach((student) => {
     let row = tbody.insertRow()
     for (let [k, v] of Object.entries(student)) {
         if (k === 'firstName' || k === 'location') {
