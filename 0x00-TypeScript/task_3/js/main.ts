@@ -8,13 +8,10 @@ const row: RowElement =  {
 }
 
 const newRowID: RowID = CRUD.insertRow(row)
+console.log(newRowID);
 
-const updatedRow: RowElement = {
-    firstName: 'Guillaume',
-    lastName: 'Salva',
-    age: 23
-}
+const updatedRow: RowElement = {age: 23, ...row};
 
 CRUD.updateRow(newRowID, updatedRow)
-
+console.log(updatedRow);
 CRUD.deleteRow(newRowID)
