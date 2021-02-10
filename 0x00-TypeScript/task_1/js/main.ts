@@ -20,35 +20,33 @@ export const printTeacher: printTeacherFunction = (firstName: string, lastName: 
     return `${firstName[0]}. ${lastName}`
 }
 
+interface StudentConstructor {
+    new(firstName: string, lastName: string): StudentClassInterface;
+  }
 
-interface Student {
+
+interface StudentClassInterface {
     firstName: string;
     lastName: string;
-}
+    workOnHomework(): string;
+    displayName(): string;
+  }
 
-class StudentClass {
-    firstName: string
-    lastName: string
-    constructor(student: Student){
-        this.firstName = student.firstName
-        this.lastName = student.lastName
+  export const StudentClass: StudentConstructor =
+  class StudentClass implements StudentClassInterface {
+    firstName: string;
+    lastName: string;
+  
+    constructor(firstName: string, lastName: string) {
+      this.firstName = firstName;
+      this.lastName = lastName;
     }
-    workOnHomework(){
-        return "Currently working"
+  
+    workOnHomework(): string {
+      return 'Currently working';
     }
-    displayName() {
-        return this.firstName
+  
+    displayName(): string {
+      return this.firstName;
     }
-
-}
-
-/*const stu1: Student = {
-    firstName:"Ivan",
-    lastName: "Lasso"
-}
-
-const student1 = new StudentClass(stu1);
-
-console.log(student1);
-console.log(student1.workOnHomework());
-console.log(student1.displayName());*/
+  }
