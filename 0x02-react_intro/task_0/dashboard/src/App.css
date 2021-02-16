@@ -1,0 +1,24 @@
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  display: flex;
+  align-items: center;
+  color: #ec0047;
+  border-bottom: 2px solid #ec0047;
+  }
+
+.App-body {
+  height: 20rem;
+  border-bottom: 2px solid #ec0047;
+  padding: 30px 70px;
+}
+
+.App-footer {
+  text-align: center;
+  justify-content: center;
+  
+  }
+
