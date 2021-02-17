@@ -10,3 +10,11 @@ export function getFooterCopy(isIndex) {
         return 'Holberton School main dashboard';
 
 }
+
+export function logClickClose() {
+    console.log('Close button has been clicked');
+}
+
+export function getLatestNotification() {
+    return '<strong>Urgent requirement</strong> - complete by EOD';
+}

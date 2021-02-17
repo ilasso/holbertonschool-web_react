@@ -1,5 +1,7 @@
 import React from 'react';
 import "./Notifications.css"
+import closeicon from './close-icon.png'
+import { logClickClose, getLatestNotification }  from './utils'
 
 export function fnotificacion(){
     return (
@@ -7,6 +9,31 @@ export function fnotificacion(){
             <p>
                 Here is the list of notifications
             </p>
+            <ul>
+                <li data-priority="default">New course available</li>
+                <li data-priority="urgent">New resume available</li>
+                <li data-priority="urgent" dangerouslySetInnerHTML={{ __html: getLatestNotification() }}></li>
+            </ul>
+            <button 
+                style={
+                    {position:"absolute",
+                    top:12,
+                    right:12,
+                    visibility:"hidden"
+                    }
+                }
+                aria-label="Close"
+                onClick={logClickClose}
+            >
+                <img alt="close" src={closeicon}
+                    style={
+                        {
+                            height:"10px",
+                            width:"10px",
+                            visibility:"visible"
+                        }
+                    }></img>
+            </button>
         </div>
     )
 
