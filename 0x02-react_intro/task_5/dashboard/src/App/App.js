@@ -1,9 +1,9 @@
-import logo from './holberton-logo.jpg';
+import logo from '../assets/holberton-logo.jpg';
 import './App.css';
-import UserConnect from './components/auth'
+import UserConnect from '../components/auth'
 import React from 'react';
 
-import { getFooterCopy, getFullYear }  from './utils';
+import { getFooterCopy, getFullYear }  from '../utils/utils';
 function App() {
   let footertext = getFooterCopy(true);
   return (

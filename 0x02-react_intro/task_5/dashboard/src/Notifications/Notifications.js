@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Notifications.css"
-import closeicon from './close-icon.png'
-import { logClickClose, getLatestNotification }  from './utils'
+import closeicon from '../assets/close-icon.png'
+import { logClickClose, getLatestNotification }  from '../utils/utils'
 
 export function fnotificacion(){
     return (
