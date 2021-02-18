@@ -6,6 +6,7 @@
     verify that App renders a div with the class App-footer
 */
 import { shallow } from 'enzyme';
+import React from "react";
 import App from './App';
 
 describe("test App", () => {
