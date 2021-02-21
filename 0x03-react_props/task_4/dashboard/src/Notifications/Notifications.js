@@ -7,18 +7,17 @@ import PropTypes from 'prop-types';
 
 function Notifications({displayDrawer}){
     return (
-        displayDrawer && 
         <div className ="Notify">
+            <div className='menuItem'>Your Notifications</div>
+        {displayDrawer && (
             <div className="Notifications">
                 <p>
                     Here is the list of notifications
                 </p>
                 <ul>
-                    <React.Fragment>
-                        <NotificationItem type='default' value='New course available' />
-                        <NotificationItem type='urgent' value='New resume available' />
-                        <NotificationItem type='urgent' html={{__html:getLatestNotification()}} />
-                    </React.Fragment>
+                    <NotificationItem type='default' value='New course available' />
+                    <NotificationItem type='urgent' value='New resume available' />
+                    <NotificationItem type='urgent' html={{__html:getLatestNotification()}} />
                 </ul>
                 <button 
                     style={
@@ -41,7 +40,8 @@ function Notifications({displayDrawer}){
                         }></img>
                 </button>
             </div>
-        </div>
+    )}
+    </div>
     );
 };
 

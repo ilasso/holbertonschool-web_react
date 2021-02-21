@@ -11,19 +11,15 @@ function App({isLoggedIn}) {
   var logged = (!isLoggedIn) ? <Login />: <CourseList />;
   return (
     <React.Fragment>
-      <div className='menuItem'>Your Notifications</div>
       <Notifications /> 
       <div className="App">
-        
         <Header />
-        
         <div className="App-body">
           {logged}
         </div>
         <Footer />
       </div>
     </React.Fragment>
-
   );
 }
 

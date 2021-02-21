@@ -16,7 +16,7 @@ describe("test NotificationItem", () => {
     });
     it("renders with correct html", () => {
         const wrapper = shallow(<NotificationItem html={{ __html: '<u>test</u>' }} />);
-        expect(wrapper.html()).toEqual('<li><u>test</u></li>');
+        expect(wrapper.html()).toEqual('<li data-priority=\"default\"><u>test</u></li>');
     });
    
 }); 

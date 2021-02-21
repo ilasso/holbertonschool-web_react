@@ -1,15 +1,5 @@
 import React from 'react';
-import { getLatestNotification }  from '../utils/utils'
-
-export function AllNotifyItems(){
-    return (
-        <React.Fragment>
-            <NotificationItem type='default' value='New course available' />
-            <NotificationItem type='urgent' value='New resume available' />
-            <NotificationItem type='urgent' html={{__html:getLatestNotification()}} />
-        </React.Fragment>
-    )
-}
+import PropTypes from 'prop-types';
 
 export function NotificationItem({type, html, value}){
         if (html === undefined)
@@ -23,4 +13,17 @@ export function NotificationItem({type, html, value}){
             );
     };
 
+
+    NotificationItem.propTypes = {
+        type: PropTypes.string.isRequired,
+        value: PropTypes.string,
+        html:PropTypes.shape({'_html':PropTypes.string})
+        };
+
+    
+    NotificationItem.defaultProps = {
+        type: "default"
+    };    
+
 export default NotificationItem;
+
