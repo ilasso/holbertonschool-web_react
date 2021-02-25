@@ -1,15 +1,20 @@
 import "./Notifications.css"
 import closeicon from '../assets/close-icon.png'
 import { logClickClose, getLatestNotification }  from '../utils/utils'
-import { NotificationItem } from './NotificationItem';
+import NotificationItem from './NotificationItem';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import NotificationItemShape from './NotificationItemShape';
 
 
 class Notifications extends Component {
+    constructor(props, context){
+        super(props, context);
+        this.markAsRead = this.markAsRead.bind(this);
+      }
+    
     render() {
-        const { displayDrawer } = this.props;
-        const { listNotifications } = this.props;
+        const { displayDrawer, listNotifications } = this.props;
         return (
         <div className ="Notify">
             <div className='menuItem'>Your Notifications</div>
@@ -23,7 +28,7 @@ class Notifications extends Component {
                     <ul>
                         {
                             listNotifications.map(({id, type, value, html}) => (
-                                <NotificationItem key={id} type={type} value={value} html={html} />
+                                <NotificationItem key={id} id={id} type={type} value={value} html={html} markAsRead={this.markAsRead} />
                             ))
                         }
                     </ul>
@@ -55,20 +60,25 @@ class Notifications extends Component {
             )}
         </div>
         );
-        markAsRead (id) {
 
-        }
+    }
+    markAsRead(id) {
+        console.log(`Notification ${id} has been marked as read`);
     }
 }
 
+
+
 Notifications.propTypes = {
     displayDrawer: PropTypes.bool,
-    listNotifications: PropTypes.array
+    listNotifications: PropTypes.arrayOf(NotificationItemShape)
   };
   
 Notifications.defaultProps = {
 displayDrawer: false,
 listNotifications: []
 };
+
+
 
 export default Notifications;
