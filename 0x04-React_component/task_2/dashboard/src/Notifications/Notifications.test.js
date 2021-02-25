@@ -5,7 +5,7 @@
 
 */
 
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import React from "react";
 import Notifications from './Notifications';
 import NotificationItem from './NotificationItem';
@@ -101,4 +101,29 @@ describe('message displays properly', () => {
         expect(noNewNotifs.length).toEqual(1);
         expect(noNewNotifs.text()).toEqual('No new notifications for now');
   });
+});
+
+describe("calling the function markAsRead", () => {
+    it('the spy is being called with the right message', () => {
+        // spy consolole.log
+        const log = jest.spyOn(global.console, 'log');
+        const notcomp = mount(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+        const instance = notcomp.instance();
+        
+        // spy markAsRead method
+        const markAsRead = jest.spyOn(instance, 'markAsRead');
+        const NotifyIt = shallow(<NotificationItem id={2} type={'default'} value={'New course available'} markAsRead={markAsRead} />);
+        
+        // simulate click on notification id=..             
+        const wrapper= NotifyIt.find('li').simulate('click');
+        
+        // check console.log has been excecuted when click and log correct message
+        expect(log).toHaveBeenCalled();
+        expect(log).toHaveBeenCalledWith('Notification 2 has been marked as read');
+
+        //check markAsRead method has been excecute whe click
+        expect(markAsRead).toHaveBeenCalled();
+        
+        jest.restoreAllMocks();
+    });
 });
