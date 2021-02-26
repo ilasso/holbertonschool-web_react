@@ -8,7 +8,7 @@ class BodySection extends Component {
         return (
             <div className="bodySection">
                 <h2>{title}</h2>
-                <p>{title}</p>
+                {this.props.children}
             </div>
         );
     }

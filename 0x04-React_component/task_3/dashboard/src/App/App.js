@@ -8,7 +8,6 @@ import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom'
 
-
 class App extends Component {
   constructor(props, context){
     super(props, context);
@@ -26,7 +25,14 @@ class App extends Component {
       { id: 2, type: 'urgent', value: 'New resume available' },
       { id: 3,  type: 'urgent', html: { __html: '<strong>Urgent requirement</strong> - complete by EOD' }}
     ];
-    var logged = (!isLoggedIn) ? <Login />: <CourseList listCourses={listCourses}/>;
+    var logged = (!isLoggedIn) ? 
+                  <BodySectionWithMarginBottom title={"Log in to continue"}>
+                     <Login />
+                  </BodySectionWithMarginBottom>
+                  :
+                  <BodySectionWithMarginBottom title={"Course List"}>
+                      <CourseList listCourses={listCourses}/>;
+                  </BodySectionWithMarginBottom>
     return (
       <React.Fragment>
         <Notifications listNotifications={listNotifications} /> 
@@ -37,7 +43,6 @@ class App extends Component {
           </div>
           <Footer />
         </div>
-        <BodySectionWithMarginBottom title={"test"}/>
     </React.Fragment>
     );
   }
