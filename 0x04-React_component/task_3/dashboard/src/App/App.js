@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
 import BodySectionWithMarginBottom from '../BodySection/BodySectionWithMarginBottom'
+import BodySection from '../BodySection/BodySection';
 
 class App extends Component {
   constructor(props, context){
@@ -40,9 +41,13 @@ class App extends Component {
           <Header />
           <div className="App-body">
             {logged}
+            <BodySection title={"News from the School"} >
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at.</p>
+            </BodySection>
           </div>
           <Footer />
         </div>
+        
     </React.Fragment>
     );
   }
