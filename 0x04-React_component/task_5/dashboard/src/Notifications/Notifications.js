@@ -62,9 +62,22 @@ class Notifications extends Component {
         );
 
     }
+    
     markAsRead(id) {
         console.log(`Notification ${id} has been marked as read`);
     }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.listNotifications.length > this.props.listNotifications.length ){
+            console.log('shouldComponentUpdate return true then rerender');
+            return true; // rerender component
+        }
+        
+        console.log('shouldComponentUpdate return false then no rerender');
+        // doesn't rerender component
+        return false;
+      }
+    
 }
 
 

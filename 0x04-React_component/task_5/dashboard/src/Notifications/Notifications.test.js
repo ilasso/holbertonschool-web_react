@@ -16,6 +16,13 @@ const listNotifications = [
     { id: 3,  type: 'urgent', html: { __html: '<strong>Urgent requirement</strong> - complete by EOD' }}
   ];
 
+  const otherlistNotifications = [
+    { id: 1, type: 'default', value: 'New course available' },
+    { id: 2, type: 'urgent', value: 'New resume available' },
+    { id: 3,  type: 'default', value: 'New resume available'},
+    { id: 4,  type: 'urgent', html: { __html: '<strong>Urgent requirement</strong> - complete by EOD' }}
+  ];
+
 describe("test Notificacions", () => {
     it("renders without crashing", () => {
         const wrapper = shallow(<Notifications />);
@@ -127,3 +134,37 @@ describe("calling the function markAsRead", () => {
         jest.restoreAllMocks();
     });
 });
+
+describe("test pure component", () => {
+    it('case 1: same list', () => {
+
+        const log = jest.spyOn(global.console, 'log');
+        const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+        
+        const shouldComponentUpdate = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate');
+
+        wrapper.setProps({ listNotifications:listNotifications });
+        
+        expect(shouldComponentUpdate).toHaveBeenCalled();
+
+        expect(log).toHaveBeenCalledWith('shouldComponentUpdate return false then no rerender');
+
+        jest.restoreAllMocks();
+
+    });
+
+    it('case 1:  longer list', () => {
+        const log = jest.spyOn(global.console, 'log');
+        const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+        
+        const shouldComponentUpdate = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate');
+  
+        wrapper.setProps({ listNotifications:otherlistNotifications });
+        
+        expect(shouldComponentUpdate).toHaveBeenCalled();
+    
+        expect(log).toHaveBeenCalledWith('shouldComponentUpdate return true then rerender');
+    
+        jest.restoreAllMocks();
+    });
+});        
