@@ -13,6 +13,23 @@ class App extends Component {
     super(props, context);
     this.handleLogout = this.handleLogout.bind(this);
   }
+
+  componentDidMount() {
+    window.addEventListener("keydown", this.handleLogout);
+  }
+  handleLogout(e){
+    /*e.target.name
+    e.target.value*/
+    if (e.ctrlKey && e.key==="h"){
+      alert("Logging you out");
+      this.props.logOut();
+    }
+  }
+  componentWillUnmount(){
+    window.removeEventListener("keydown", this.handleLogout);
+    console.log("unmount")
+  }
+  
   render() {
     const { isLoggedIn } = this.props;
     const listCourses = [
@@ -39,21 +56,7 @@ class App extends Component {
     </React.Fragment>
     );
   }
-  componentDidMount() {
-    window.addEventListener("keydown", this.handleLogout);
-  }
-  handleLogout(e){
-    /*e.target.name
-    e.target.value*/
-    if (e.ctrlKey && e.key==="h"){
-      alert("Logging you out");
-      this.props.logOut();
-    }
-  }
-  componentWillUnmount(){
-    window.removeEventListener("keydown", this.handleLogout);
-    console.log("unmount")
-  }
+
 }
 
 
