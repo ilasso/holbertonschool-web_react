@@ -11,7 +11,7 @@ import CourseList from '../CourseList/CourseList';
 class App extends Component {
   constructor(props, context){
     super(props, context);
-    this.handleKeyDown = this.handleKeyDown.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
   render() {
     const { isLoggedIn } = this.props;
@@ -40,9 +40,9 @@ class App extends Component {
     );
   }
   componentDidMount() {
-    window.addEventListener("keydown", this.handleKeyDown);
+    window.addEventListener("keydown", this.handleLogout);
   }
-  handleKeyDown(e){
+  handleLogout(e){
     /*e.target.name
     e.target.value*/
     if (e.ctrlKey && e.key==="h"){
@@ -51,7 +51,7 @@ class App extends Component {
     }
   }
   componentWillUnmount(){
-    window.removeEventListener("keydown", this.handleKeyDown);
+    window.removeEventListener("keydown", this.handleLogout);
     console.log("unmount")
   }
 }
