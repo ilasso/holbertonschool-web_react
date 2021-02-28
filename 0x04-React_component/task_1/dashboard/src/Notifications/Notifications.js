@@ -55,9 +55,6 @@ class Notifications extends Component {
             )}
         </div>
         );
-        markAsRead (id) {
-
-        }
     }
 }
 
