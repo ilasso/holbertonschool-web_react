@@ -29,7 +29,7 @@ class App extends Component {
     window.removeEventListener("keydown", this.handleLogout);
     console.log("unmount")
   }
-  
+
   render() {
     const { isLoggedIn } = this.props;
     const listCourses = [
@@ -68,7 +68,7 @@ App.propTypes = {
 
 App.defaultProps = {
   isLoggedIn: false,
-  logOut : () => {}
+  logOut : () => undefined
 };
 
 export default App;
