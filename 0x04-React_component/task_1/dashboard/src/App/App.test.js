@@ -1,103 +1,46 @@
-/*
-
-    test that App renders without crashing
-    verify that App renders a div with the class App-header
-    verify that App renders a div with the class App-body
-    verify that App renders a div with the class App-footer
-*/
-//import { shallow } from 'enzyme';
-import {shallow, mount} from 'enzyme'
-import React from "react";
+import React from 'react';
+import { shallow } from 'enzyme';
+import { expect as expectChai } from 'chai';
 import App from './App';
-import Notifications from '../Notifications/Notifications';
-import Login from '../Login/Login';
-import Header from '../Header/Header';
-import Footer from '../Footer/Footer';
 import CourseList from '../CourseList/CourseList';
+import Login from '../Login/Login';
+
+describe('Test App.js', () => {
+	let events = {};
+
+  beforeEach(() => {
+    events = {}; // Empty our events before each test case
+    // Define the addEventListener method with a Jest mock function
+    document.addEventListener = jest.fn((event, callback) => {
+      events[event] = callback;
+    });
+  });
 
 
+  it('App without crashing', (done) => {
+    expectChai(shallow(<App />).exists());
+    done();
+  });
 
-describe("test App", () => {
-    
-    it("renders without crashing", () => {
-        const wrapper = shallow(<App />);
-        shallow(<App />);
-        expect(wrapper.exists());
-    });
-    
-    it("Notifications", () => {
-        const wrapper = shallow(<Notifications />);
-        shallow(<Notifications />);
-        expect(wrapper.exists());
-        
-    });
-    it("Header", () => {
-        const wrapper = shallow(<Header />);
-        shallow(<Header />);
-        expect(wrapper.exists());
-    });
-    it("Login", () => {
-        const wrapper = shallow(<Login />);
-        shallow(<Login />);
-        expect(wrapper.exists());
-    });
-    it("Footer", () => {
-        const wrapper = shallow(<Footer />);
-        shallow(<Footer />);
-        expect(wrapper.exists());
-    });
-    it("Footer", () => {
-        const wrapper = shallow(<Footer />);
-        shallow(<Footer />);
-        expect(wrapper.exists());
-    });
-}); 
-  
-
-/*
-- Add a test to check that CourseList is not displayed
-- Describe a new case, when isLoggedIn is true, and add two checks. 
-  The first one should verify that the Login component is not included. 
-  The second one should verify that the CourseList component is included
-*/
-
-describe("CourseList", () => {
-it("test to check that CourseList is not displayed", () => {
+  it('check that CourseList is not displayed when isLoggedIn is false', (done) => {
     const wrapper = shallow(<App />);
-    expect(wrapper.find(CourseList).length).toEqual(0);
-    }); 
-}); 
+    expectChai(wrapper.find(CourseList)).to.have.lengthOf(0);
+    done();
+  });
 
-const wrapper = shallow(<App isLoggedIn={true} />);
-describe("when isLoggedIn is true", () => {
-    it("the Login component is not included.", () => {
-        expect(wrapper.find(Login).length).toEqual(0);
-    }); 
-    it("the CourseList component is included", () => {
-        expect(wrapper.find(CourseList).length).toEqual(1);
-    }); 
-}); 
+  it('check that CourseList is displayed and Login is not displayed when isLoggedIn is true', (done) => {
+    const wrapper = shallow(<App isLoggedIn={true} />);
+    expectChai(wrapper.find(CourseList)).to.have.lengthOf(1);
+    expectChai(wrapper.find(Login)).to.have.lengthOf(0);
+    done();
+  });
 
-/*
-Create a test to verify that when the keys control and h are pressed the logOut function, 
-passed as a prop, is called and the alert function is called with the string Logging you out
-*/
-
-describe("est to verify CTRL-H keys control", () => {
-    it('when the logOut function is passed as a prop, is called alert', () => {
-        window.alert = jest.fn();
-        const Alert = jest.spyOn(global, 'alert');
-
-        const map = {};
-        window.addEventListener = jest.fn((event, cb) => {
-            map[event] = cb;
-        });
-        const logout = jest.fn(() => undefined);
-        const component = mount(<App logOut={logout}/>);
-        map.keydown({ctrlKey:true, key:'h'});
-
-        expect(Alert).toHaveBeenCalled();
-
-        jest.restoreAllMocks();
-    });
+  it('verify that when the keys "control" and "h" are pressed the "logOut" function is called', (done) => {
+    const logOut = jest.fn(() => void (0));
+    shallow(<App />);
+    window.alert = logOut;
+    events.keydown({ keyCode: 72, ctrlKey: true });
+    expect(logOut).toHaveBeenCalled()
+    done();
+  });
 });
