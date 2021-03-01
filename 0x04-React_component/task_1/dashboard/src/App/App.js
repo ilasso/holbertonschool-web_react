@@ -11,13 +11,13 @@ import CourseList from '../CourseList/CourseList';
 class App extends React.Component {
   constructor(props, context){
     super(props, context);
-    this.handleLogout = this.handleLogout.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener("keydown", this.handleLogout);
+    document.addEventListener("keydown", this.handleClick);
   }
-  handleLogout(e){
+  handleClick(e){
     /*e.target.name
     e.target.value*/
     if (e.ctrlKey && e.keyCode === 72){
@@ -26,7 +26,7 @@ class App extends React.Component {
     }
   }
   componentWillUnmount(){
-    document.removeEventListener("keydown", this.handleLogout);
+    document.removeEventListener("keydown", this.handleClick);
     console.log("unmount")
   }
 
