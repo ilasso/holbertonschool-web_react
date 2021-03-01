@@ -15,7 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    window.addEventListener("keydown", this.handleLogout);
+    document.addEventListener("keydown", this.handleLogout);
   }
   handleLogout(e){
     /*e.target.name
@@ -26,7 +26,7 @@ class App extends Component {
     }
   }
   componentWillUnmount(){
-    window.removeEventListener("keydown", this.handleLogout);
+    document.removeEventListener("keydown", this.handleLogout);
     console.log("unmount")
   }
 
@@ -68,7 +68,7 @@ App.propTypes = {
 
 App.defaultProps = {
   isLoggedIn: false,
-  logOut : () => undefined
+  logOut : () => {}
 };
 
 export default App;
