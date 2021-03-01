@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import CourseList from '../CourseList/CourseList';
 
 
-class App extends Component {
+class App extends React.Component {
   constructor(props, context){
     super(props, context);
     this.handleLogout = this.handleLogout.bind(this);
