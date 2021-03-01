@@ -20,7 +20,7 @@ class App extends React.Component {
   handleLogout(e){
     /*e.target.name
     e.target.value*/
-    if (e.ctrlKey && e.key==="h"){
+    if (e.ctrlKey && e.keyCode === 72){
       alert("Logging you out");
       this.props.logOut();
     }
