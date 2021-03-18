@@ -1,8 +1,6 @@
 import immutable from 'immutable';
 
-const { Map } = immutable;
-
-export const map = Map({
+export const map = immutable.Map({
   1: 'Liam',
   2: 'Noah',
   3: 'Elijah',
