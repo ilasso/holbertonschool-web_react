@@ -1,0 +1,49 @@
+.Notifications {
+  border: 2px dashed #ec0047;
+  background-color: white;
+  margin-top: 0;
+}
+
+.Notifications, .menuItem {
+padding: 0rem;
+position: relative;
+margin: 0.5rem;
+}
+
+.menuItem {
+  margin-bottom: 0;
+  text-align: right;
+}
+
+.Notify {
+  position: absolute;
+  right: 12px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-end;
+}
+/*header .Ynotify {
+  right: 12px;
+  padding: 0 0 0 0;
+}
+
+
+.menuItem {
+  float: right;
+  border-style: solid;
+  
+}
+
+.Notifications {
+  border: 2px solid #ec0047;
+  border-style: dashed;
+}*/
+
+li[data-priority="default"] {
+  color:blue; 
+}
+
+li[data-priority="urgent"] {
+  color:#ec0047; 
+}
