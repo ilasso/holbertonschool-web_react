@@ -1,0 +1,10 @@
+:root {
+    --main-color: #e01d3f;
+  }
+
+.App-footer {
+    border-top: 2px solid var(--main-color);
+    text-align: center;
+    justify-content: center;
+    
+    }
